@@ -57,9 +57,11 @@ def load_image(path):  # Input:CH,H,W  Output:H,W,CH
 
 
 def load_mask(path):  # Input:H,W  Output:H,W,CH
-
+    
     x = path.split('.')
-    mask = pickle.load(open('.'+x[1]+"_mask."+x[2], "rb"))
+
+    mask = rasterio.open(x[0]+"_mask."+x[1])
+    mask = mask.read()
     mask = np.squeeze(mask, axis=(0,))
     mask = np.float32(mask)
     return mask

@@ -5,7 +5,7 @@ import os
 import torch
 from torch.backends import cudnn
 import numpy as np
-# python segmentation/train.py --batch-size 4 --lr 1e-3  --n-epochs 5
+# python3 train.py --batch-size 4 --lr 1e-3  --n-epochs 5
 
 
 from train_process import train_model
