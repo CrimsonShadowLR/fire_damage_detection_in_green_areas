@@ -2,32 +2,33 @@ Epoch 0/4
 ----------
 LR0.001
 dataloader:38
-train: bce: 0.000021, loss: 0.651768, dice_loss: 0.770936, jaccard_loss: 0.845271dataloader:14
-val: bce: 0.009033, loss: 0.413911, dice_loss: 0.498391, jaccard_loss: 0.634524saving best model
-0m 31s
+train: bce: 0.000608, loss: 0.555747, dice_loss: 0.685906, jaccard_loss: 0.781150dataloader:14
+val: bce: 0.010678, loss: 0.444097, dice_loss: 0.519547, jaccard_loss: 0.652130saving best model
+0m 32s
 Epoch 1/4
 ----------
 LR0.001
 dataloader:38
-train: bce: 0.000007, loss: 0.354533, dice_loss: 0.437842, jaccard_loss: 0.560565dataloader:14
-val: bce: 0.003514, loss: 0.330917, dice_loss: 0.409311, jaccard_loss: 0.542590saving best model
+train: bce: 0.000026, loss: 0.395107, dice_loss: 0.484118, jaccard_loss: 0.612053dataloader:14
+val: bce: 0.004107, loss: 0.409004, dice_loss: 0.521139, jaccard_loss: 0.652181saving best model
 0m 19s
 Epoch 2/4
 ----------
 LR0.001
 dataloader:38
-train: bce: 0.000004, loss: 0.305843, dice_loss: 0.383018, jaccard_loss: 0.503984dataloader:14
-val: bce: 0.004468, loss: 0.367348, dice_loss: 0.444573, jaccard_loss: 0.5733540m 19s
+train: bce: 0.000005, loss: 0.341557, dice_loss: 0.432125, jaccard_loss: 0.560186dataloader:14
+val: bce: 0.004528, loss: 0.451738, dice_loss: 0.567952, jaccard_loss: 0.6921090m 20s
 Epoch 3/4
 ----------
 LR0.001
 dataloader:38
-train: bce: 0.000007, loss: 0.294881, dice_loss: 0.367474, jaccard_loss: 0.490177dataloader:14
-val: bce: 0.007362, loss: 0.414238, dice_loss: 0.487832, jaccard_loss: 0.6133970m 19s
+train: bce: 0.000003, loss: 0.332544, dice_loss: 0.417662, jaccard_loss: 0.541881dataloader:14
+val: bce: 0.007797, loss: 0.362489, dice_loss: 0.397186, jaccard_loss: 0.527666saving best model
+0m 20s
 Epoch 4/4
 ----------
 LR0.001
 dataloader:38
-train: bce: 0.000000, loss: 0.294630, dice_loss: 0.360562, jaccard_loss: 0.489959dataloader:14
-val: bce: 0.018365, loss: 0.685743, dice_loss: 0.775469, jaccard_loss: 0.8694870m 19s
-Best val loss: 0.330917
+train: bce: 0.000004, loss: 0.293295, dice_loss: 0.363218, jaccard_loss: 0.485482dataloader:14
+val: bce: 0.005148, loss: 0.452564, dice_loss: 0.563448, jaccard_loss: 0.6863380m 20s
+Best val loss: 0.362489
