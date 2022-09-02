@@ -1,0 +1,33 @@
+Epoch 0/4
+----------
+LR0.001
+dataloader:38
+train: bce: 0.000021, loss: 0.651768, dice_loss: 0.770936, jaccard_loss: 0.845271dataloader:14
+val: bce: 0.009033, loss: 0.413911, dice_loss: 0.498391, jaccard_loss: 0.634524saving best model
+0m 31s
+Epoch 1/4
+----------
+LR0.001
+dataloader:38
+train: bce: 0.000007, loss: 0.354533, dice_loss: 0.437842, jaccard_loss: 0.560565dataloader:14
+val: bce: 0.003514, loss: 0.330917, dice_loss: 0.409311, jaccard_loss: 0.542590saving best model
+0m 19s
+Epoch 2/4
+----------
+LR0.001
+dataloader:38
+train: bce: 0.000004, loss: 0.305843, dice_loss: 0.383018, jaccard_loss: 0.503984dataloader:14
+val: bce: 0.004468, loss: 0.367348, dice_loss: 0.444573, jaccard_loss: 0.5733540m 19s
+Epoch 3/4
+----------
+LR0.001
+dataloader:38
+train: bce: 0.000007, loss: 0.294881, dice_loss: 0.367474, jaccard_loss: 0.490177dataloader:14
+val: bce: 0.007362, loss: 0.414238, dice_loss: 0.487832, jaccard_loss: 0.6133970m 19s
+Epoch 4/4
+----------
+LR0.001
+dataloader:38
+train: bce: 0.000000, loss: 0.294630, dice_loss: 0.360562, jaccard_loss: 0.489959dataloader:14
+val: bce: 0.018365, loss: 0.685743, dice_loss: 0.775469, jaccard_loss: 0.8694870m 19s
+Best val loss: 0.330917
