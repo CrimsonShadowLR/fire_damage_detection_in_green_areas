@@ -53,7 +53,7 @@ def cal_dir_stat(im_pths, max_value, channel_num):
 
     return rgb_mean, rgb_std
 
-def meanstd(root, rootdata='data_VHR', channel_num='4'):  # name_file,
+def meanstd(root, rootdata='data_VHR', channel_num='8'):  # name_file,
     data_path = Path(rootdata)
 
     minimo_pixel_all, maximo_pixel_all, size_all = find_max(root)

@@ -50,7 +50,8 @@ def to_float_tensor(img):
 
 
 def load_image(path):  # Input:CH,H,W  Output:H,W,CH
-    img = pickle.load(open(path, "rb"))
+    img = rasterio.open(path)
+    img = img.read()
     img = img.transpose((1, 2, 0))
     return img
 

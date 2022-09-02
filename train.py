@@ -81,9 +81,9 @@ def train():
                                                      channel_num=channel_num)
 
     train_transform = DualCompose([
-        HorizontalFlip(),
-        VerticalFlip(),
-        Rotate(),
+        # HorizontalFlip(),
+        # VerticalFlip(),
+        # Rotate(),
         ImageOnly(Normalize(mean=mean_train, std=std_train))
     ])
 
@@ -93,7 +93,7 @@ def train():
 
     limit = args.limit if args.limit > 0 else None
 
-    train_loader = make_loader(filenames=np.array(images_np_filenames)[train_set_indices],
+    train_loader = make_loader(filenames=np.array(images_filenames)[train_set_indices],
                                      mask_dir=args.masks_dir,
                                      dataset=args.model,
                                      shuffle=False,
@@ -102,7 +102,7 @@ def train():
                                      batch_size=args.batch_size,
                                      limit=limit)
 
-    valid_loader = make_loader(filenames=np.array(images_np_filenames)[val_set_indices],
+    valid_loader = make_loader(filenames=np.array(images_filenames)[val_set_indices],
                                      mask_dir=args.masks_dir,
                                      dataset=args.model,
                                      shuffle=False,
