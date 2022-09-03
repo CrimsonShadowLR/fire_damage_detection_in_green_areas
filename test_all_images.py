@@ -43,7 +43,7 @@ def test_all_images():
     time_str=now.strftime("%H:%M:%S")
 
     # Select sample pictures
-    images_filenames = np.array(sorted(glob.glob(args.npy_dir + "/*.npy")))
+    images_filenames = np.array(sorted(glob.glob(args.npy_dir + "/*_mask.npy")))
 
     for filename in tqdm(images_filenames):
 
