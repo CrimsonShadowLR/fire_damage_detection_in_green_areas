@@ -33,7 +33,7 @@ def train():
     arg('--npy-dir', type=str, default='./data/dataset/fs7mtkg2wk-4/split_npy', help='numPy preprocessed patches directory')
 
     # preprocessing-related variables val, test and the rest is train
-    arg('--val-percent', type=float, default=0.25, help='Validation percent')
+    arg('--val-percent', type=float, default=0.15, help='Validation percent')
     arg('--test-percent', type=float, default=0.10, help='Test percent')
 
     # training-related variable
@@ -41,7 +41,7 @@ def train():
     arg('--limit', type=int, default=0, help='number of images in epoch')
     arg('--n-epochs', type=int, default=5)
     arg('--lr', type=float, default=1e-3)
-    arg('--step', type=float, default=60)
+    arg('--step', type=float, default=120)
     arg('--model', type=str, default='UNet11', choices=['UNet11','UNet','AlbuNet34','SegNet'])
     arg('--target_segmentation', type=str, default='burn', help='burn: burn segmentation')
     arg('--out-path', type=str, default='./trained_models/', help='model output path')
@@ -73,11 +73,8 @@ def train():
 
     images_np_filenames = dataset_utils.save_npy(images_filenames, args.npy_dir, args.model, args.masks_dir)
 
-    #masks_filenames = np.array(sorted(glob.glob(args.masks_dir + "/*.tif")))
-    #masks_np_filenames = dataset_utils.save_npy(masks_filenames, args.masks_dir, args.model, args.masks_dir)
-
     channel_num = 8
-    max_value, mean_train, std_train = meanstd(np.array(images_np_filenames)[train_set_indices],
+    _, mean_train, std_train = meanstd(np.array(images_np_filenames)[train_set_indices],
                                                      channel_num=channel_num)
 
     train_transform = DualCompose([
