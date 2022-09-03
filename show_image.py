@@ -57,7 +57,7 @@ def show_sample_images():
         print(basename)
         fl_split=basename.split('.')
         print(fl_split)
-        mask_path = args.masks_dir+ "/." + fl_split[0]+ "_mask."+ fl_split[1]
+        mask_path = args.masks_dir+ "/" + fl_split[0]+ "_mask."+ fl_split[1]
         y = pickle.load(open(mask_path, "rb"))
         print("Get mask for sample {}".format(idx))
 
