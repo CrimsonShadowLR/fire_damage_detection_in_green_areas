@@ -65,7 +65,8 @@ def test_all_images():
 
         fig.add_subplot(1, 3, 3)
         plt.imshow(pred_to_colorimg(pred.cpu().numpy()))
-
+        
+        print(filename)
         plt.savefig(os.path.join("./test_all",
                                  filename[filename.rfind("/") + 1:filename.rfind(".")] + time_str +".png"))
 
