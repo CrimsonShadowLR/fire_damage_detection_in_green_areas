@@ -75,6 +75,7 @@ def preprocess_image(img,mean,std):
     print(img.shape)
     img = img.transpose((1, 2, 0))
     image_transform = transform_function(mean,std)
+    print(image_transform.shape)
     img_for_model = image_transform(img)[0]
     img_for_model = Variable(to_float_tensor(img_for_model), requires_grad=False)
     img_for_model = img_for_model.unsqueeze(0).to(device)
