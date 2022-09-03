@@ -41,14 +41,12 @@ def test_all_images():
     # Select sample pictures
     images_filenames = np.array(sorted(glob.glob(args.npy_dir + "/*.npy")))
 
-    _, mean, std = meanstd(np.array(images_filenames), channel_num=8)
-
     for filename in tqdm(images_filenames):
 
         fig = plt.figure(figsize=(10, 10))
 
         image = pickle.load(open(filename, "rb"))
-        image = preprocess_image(image,mean,std)
+        image = preprocess_image(image)
 
         pred = run_model(image, model)
 

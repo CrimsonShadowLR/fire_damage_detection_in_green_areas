@@ -65,31 +65,26 @@ def meanstd(root, rootdata='data_VHR', channel_num='8'):  # name_file,
     print("mean:{}\nstd:{}".format(mean_all, std_all))
     return maximo_pixel_all, mean_all, std_all
 
-def preprocess_image(img,mean,std):
+def preprocess_image(img):
     """Normaliza y transforma la imagen en un tensor apto para ser procesado por la red neuronal de segmentación de
     cuerpos de agua.
     Dimensiones: entrada: (8,256,256); salida: (1,8,256,256)
     :param img: imagen por preprocesar
     :type img: np.ndarray
     """
-    print(img.shape)
-    print(mean.shape)
-    print(std.shape)
     img = img.transpose((1, 2, 0))
-    image_transform = transform_function(mean,std)
-    print(image_transform.transforms.trans.mean)
-    print(image_transform.transforms.trans.std)
+    image_transform = transform_function()
     img_for_model = image_transform(img)[0]
-    print(9999)
     img_for_model = Variable(to_float_tensor(img_for_model), requires_grad=False)
     img_for_model = img_for_model.unsqueeze(0).to(device)
 
     return img_for_model
 
 
-def transform_function(mean,std):
+def transform_function():
     """Función de normalización para una imagen satelital."""
     image_transform = DualCompose([ImageOnly(
-            Normalize(mean,std))])
+            Normalize(mean=[0.193204732, 0.171372226, 0.150260641, 0.131608721, 0.305681679, 0.188308873, 0.105871855, 0.0485840778],
+                      std=[0.107186223, 0.112999831, 0.111625422, 0.118835341, 0.13037901, 0.101496176, 0.0789984236, 0.0855568126]))])
     
     return image_transform
