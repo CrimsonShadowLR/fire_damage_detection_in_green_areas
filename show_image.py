@@ -21,9 +21,9 @@ def show_sample_images():
     arg('--dataset', type=str, help='burn: burn segmentation')
 
     # image-related variables
-    arg('--image-patches-dir', type=str, default='./data/dataset/split', help='satellite image patches directory')
-    arg('--masks-dir', type=str, default='./data/dataset/labels', help='numPy masks directory')
-    arg('--npy-dir', type=str, default='./data/dataset/split_npy', help='numPy preprocessed patches directory')
+    arg('--image-patches-dir', type=str, default='./data/dataset/fs7mtkg2wk-4/images', help='satellite image patches directory')
+    arg('--masks-dir', type=str, default='./data/dataset/fs7mtkg2wk-4/masks', help='numPy masks directory')
+    arg('--npy-dir', type=str, default='./data/dataset/fs7mtkg2wk-4/split_npy', help='numPy preprocessed patches directory')
 
     args = parser.parse_args()
 
