@@ -5,6 +5,10 @@ import pickle
 from image_utils import masks_to_colorimg, pred_to_colorimg, reverse_transform
 
 import numpy as np
+import matplotlib as mpl
+if os.environ.get('DISPLAY','') == '':
+    print('no display found. Using non-interactive Agg backend')
+    mpl.use('Agg')
 import matplotlib.pyplot as plt
 
 from models import UNet11
@@ -26,8 +30,6 @@ def show_sample_images():
     arg('--npy-dir', type=str, default='./data/dataset/fs7mtkg2wk-4/split_npy', help='numPy preprocessed patches directory')
 
     args = parser.parse_args()
-
-    dataset_path = "./data/dataset/split_npy"
 
     modelname = args.model_path[args.model_path.rfind("/") + 1:args.model_path.rfind(".pth")]
 
