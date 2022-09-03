@@ -70,7 +70,7 @@ def test_all_images():
         
         print(filename, 5)
         plt.savefig(os.path.join("./test_all",
-                                 filename[filename.rfind("/") + 1:filename.rfind(".")] + time_str +".png"))
+                                 filename[filename.rfind("/") + 1:filename.rfind(".")] + ".png"))
 
         plt.clf()
         plt.close(fig)
