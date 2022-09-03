@@ -11,6 +11,7 @@ if os.environ.get('DISPLAY','') == '':
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 import time
+from preprocessing import meanstd
 
 from models import UNet11
 from preprocessing import preprocess_image
@@ -22,7 +23,7 @@ def test_all_images():
     parser = argparse.ArgumentParser()
     arg = parser.add_argument
     
-    # model-related variables
+    # model-related variables model_path='./trained_models/model_25_percent_UNet11_Unet11_350epochs',
     arg('--model-path', type=str, help='Model path')
     arg('--dataset', type=str, default='burn', help='burn: burn segmentation')
 
@@ -40,12 +41,14 @@ def test_all_images():
     # Select sample pictures
     images_filenames = np.array(sorted(glob.glob(args.npy_dir + "/*.npy")))
 
+    _, mean, std = meanstd(np.array(images_filenames), channel_num=8)
+
     for filename in tqdm(images_filenames):
 
         fig = plt.figure(figsize=(10, 10))
 
         image = pickle.load(open(filename, "rb"))
-        image = preprocess_image(image)
+        image = preprocess_image(image,mean,std)
 
         pred = run_model(image, model)
 
