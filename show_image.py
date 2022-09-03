@@ -48,25 +48,26 @@ def show_sample_images():
     for idx, filename in enumerate(sample_filenames):
         print("Loading sample input {}".format(idx))
         image = pickle.load(open(filename, "rb"))
-        image = preprocess_image(image, args.dataset)
+        image = preprocess_image(image)
 
         print("Running model for sample {}".format(idx))
-        pred = run_model(image, model, args.dataset)
+        pred = run_model(image, model)
 
-        mask_path = os.path.join(args.masks_dir, args.dataset, filename[filename.rfind("/") + 1:])
+        fl_split=filename.split('.')
+        mask_path = os.path.join(args.masks_dir, '.', fl_split[1], "_mask.", fl_split[2])
         y = pickle.load(open(mask_path, "rb"))
         print("Get mask for sample {}".format(idx))
 
         fig.add_subplot(args.num_picture, 3, idx * 3 + 1)
-        plt.imshow(reverse_transform(image.cpu().numpy()[0], args.dataset))
+        plt.imshow(reverse_transform(image.cpu().numpy()[0]))
         print("Add plot for sample input {}".format(idx))
 
         fig.add_subplot(args.num_picture, 3, idx * 3 + 2)
-        plt.imshow(masks_to_colorimg(y, args.dataset))
+        plt.imshow(masks_to_colorimg(y))
         print("Add plot for sample mask {}".format(idx))
 
         fig.add_subplot(args.num_picture, 3, idx * 3 + 3)
-        plt.imshow(pred_to_colorimg(pred.cpu().numpy(), args.dataset))
+        plt.imshow(pred_to_colorimg(pred.cpu().numpy()))
         print("Add plot for sample pred {}".format(idx))
 
     if not os.path.exists("test"):
