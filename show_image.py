@@ -53,8 +53,9 @@ def show_sample_images():
         print("Running model for sample {}".format(idx))
         pred = run_model(image, model)
 
-        fl_split=filename.split('.')
-        mask_path = args.masks_dir+ "/." + fl_split[1]+ "."+ fl_split[2]
+        basename=filename.rfind("/")
+        fl_split=basename.split('.')
+        mask_path = args.masks_dir+ "/." + fl_split[1]+ "_mask."+ fl_split[2]
         y = pickle.load(open(mask_path, "rb"))
         print("Get mask for sample {}".format(idx))
 
