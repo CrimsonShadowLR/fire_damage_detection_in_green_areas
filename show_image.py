@@ -2,12 +2,14 @@ import argparse
 import glob
 import os
 import pickle
+from image_utils import masks_to_colorimg, pred_to_colorimg, reverse_transform
 
 import numpy as np
 import matplotlib.pyplot as plt
 
 from models import UNet11
 from model_utils import load_model, run_model
+from preprocessing import preprocess_image
 
 def show_sample_images():
     parser = argparse.ArgumentParser()
