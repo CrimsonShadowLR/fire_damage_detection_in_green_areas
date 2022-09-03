@@ -10,7 +10,7 @@ if os.environ.get('DISPLAY','') == '':
     mpl.use('Agg')
 import matplotlib.pyplot as plt
 from tqdm import tqdm
-import time
+from datetime import datetime
 from preprocessing import meanstd
 
 from models import UNet11
@@ -39,7 +39,7 @@ def test_all_images():
         os.mkdir("./test_all")
 
     # date str
-    now = time.now()
+    now = datetime.now()
     time_str=now.strftime("%H:%M:%S")
 
     # Select sample pictures
