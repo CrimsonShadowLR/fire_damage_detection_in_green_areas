@@ -3,6 +3,7 @@ from pathlib import Path
 
 import numpy as np
 import torch
+from torch.autograd import Variable
 from transform import DualCompose, ImageOnly, Normalize
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

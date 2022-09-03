@@ -38,6 +38,10 @@ def test_all_images():
     if not os.path.exists("./test_all"):
         os.mkdir("./test_all")
 
+    # date str
+    now = time.now()
+    time_str=now.strftime("%H:%M:%S")
+
     # Select sample pictures
     images_filenames = np.array(sorted(glob.glob(args.npy_dir + "/*.npy")))
 
@@ -63,7 +67,7 @@ def test_all_images():
         plt.imshow(pred_to_colorimg(pred.cpu().numpy()))
 
         plt.savefig(os.path.join("./test_all",
-                                 filename[filename.rfind("/") + 1:filename.rfind(".")] + ".png"))
+                                 filename[filename.rfind("/") + 1:filename.rfind(".")] + time_str +".png"))
 
         plt.clf()
         plt.close(fig)
