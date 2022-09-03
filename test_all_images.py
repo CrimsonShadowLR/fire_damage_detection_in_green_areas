@@ -46,6 +46,8 @@ def test_all_images():
     images_filenames = np.array(sorted(glob.glob(args.npy_dir + "/*_mask.npy")))
 
     for filename in tqdm(images_filenames):
+        
+        print(filename, 1)
 
         fig = plt.figure(figsize=(10, 10))
 
@@ -66,7 +68,7 @@ def test_all_images():
         fig.add_subplot(1, 3, 3)
         plt.imshow(pred_to_colorimg(pred.cpu().numpy()))
         
-        print(filename)
+        print(filename, 5)
         plt.savefig(os.path.join("./test_all",
                                  filename[filename.rfind("/") + 1:filename.rfind(".")] + time_str +".png"))
 
