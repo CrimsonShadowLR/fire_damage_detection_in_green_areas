@@ -34,12 +34,11 @@ def show_sample_images():
     model = load_model(args.model_path, UNet11)
 
     print("Testing {} on {} samples".format(modelname, args.num_picture))
-
-    print(len(images_filenames))
     print(args.num_picture)
 
     # Select sample pictures
     images_filenames = np.array(sorted(glob.glob(args.npy_dir + "/*.npy")))
+    print(len(images_filenames))
     sample_filenames = np.random.choice(images_filenames, args.num_picture)
 
     fig = plt.figure(figsize=(10, 7.5 * args.num_picture))
