@@ -1,5 +1,6 @@
 import pickle
 from pathlib import Path
+from data_loader import to_float_tensor
 
 import numpy as np
 import torch
