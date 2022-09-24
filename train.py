@@ -40,7 +40,7 @@ def train():
     arg('--batch-size', type=int, default=1, help='HR(High resolution):4,VHR(Very high resolution):8')
     arg('--limit', type=int, default=0, help='number of images in epoch')
     arg('--n-epochs', type=int, default=5)
-    arg('--lr', type=float, default=1e-3)
+    arg('--lr', type=float, default=1e-5)
     arg('--step', type=float, default=120)
     arg('--model', type=str, default='UNet11', choices=['UNet11','UNet','AlbuNet34','SegNet'])
     arg('--target_segmentation', type=str, default='burn', help='burn: burn segmentation')
