@@ -8,17 +8,14 @@ Output:
 .TIF Images of 512x512x4 (RGBNIR)
 The complete images have some parts in blacks, which will be not considered if there is more than 15% of black parts in the images.
 
-Adapted from https://github.com/jesseniagonzalezv/App_segmentation_water_bodies/
-
 """
-
+from pathlib import Path
 import rasterio as rio
 from rasterio import windows
 import numpy as np
-import matplotlib.pyplot as plt
-from rasterio.plot import show 
 import os
 from itertools import product
+import timeit
 import csv
 
 def splits_images(in_path,out_path,input_filename,output_filename,output_filename_npy,output_filename_npyblack):
@@ -34,8 +31,7 @@ def splits_images(in_path,out_path,input_filename,output_filename,output_filenam
             yield window, transform
 
 
-    with rio.open(os.path.join(in_path, input_filename)) as inds:
-        tile_width, tile_height = 512, 512
+    with rio.open(input_filename) as inds:
         meta = inds.meta.copy()
 
 
@@ -72,3 +68,20 @@ def splits_images(in_path,out_path,input_filename,output_filename,output_filenam
                 with myFile:
                     writer = csv.writer(myFile)
                     writer.writerows(myData)  
+
+def split_all():
+    data_path = Path('imagenes')
+    out_path_images = '/home/crimson/fire_damage_detection_in_green_areas/data/crops/Cusco/'
+    start = timeit.default_timer()
+    input_filename0  = '/home/crimson/fire_damage_detection_in_green_areas/data/images/Cusco/S2A_MSIL1C_20201006T145731_N0209_R039_T18LZK_20201006T183129.SAFE/T18LZK_20201006T145731.tif'
+    output_filename0 = 'Cus-2020-10-06rgbnir0{}-{}.tif'
+    output_filename_npy0 = 'Cus-2020-10-06rgbnir0{}-{}.npy'
+    output_filename_npyblack0 = 'Cus-2020-10-06rgbnir0{}-{}_b.npy'
+    splits_images(data_path,out_path_images,input_filename0,output_filename0,output_filename_npy0,output_filename_npyblack0)
+
+    end = timeit.default_timer()
+    print("elapsed time: {}".format(end-start))
+
+
+if __name__ == "__main__":
+    split_all()

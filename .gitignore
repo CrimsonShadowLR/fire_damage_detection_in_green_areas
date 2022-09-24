@@ -16,6 +16,12 @@ eggs/
 .eggs/
 data/
 .data/
+masks/
+.masks/
+dataset/
+.dataset/
+dataset_nbr/
+.dataset_nbr/
 lib/
 lib64/
 parts/
