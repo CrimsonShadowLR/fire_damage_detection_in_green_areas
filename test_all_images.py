@@ -5,17 +5,18 @@ import pickle
 
 import numpy as np
 import matplotlib as mpl
+
+from data_loader import load_image
+from image_utils import masks_to_colorimg, pred_to_colorimg, reverse_transform
 if os.environ.get('DISPLAY','') == '':
     print('no display found. Using non-interactive Agg backend')
     mpl.use('Agg')
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 from datetime import datetime
-from preprocessing import meanstd
 
 from models import UNet11
 from preprocessing import preprocess_image
-from image_utils import reverse_transform, masks_to_colorimg, pred_to_colorimg
 from model_utils import load_model, run_model
 
 
@@ -24,12 +25,12 @@ def test_all_images():
     arg = parser.add_argument
     
     # model-related variables model_path='./trained_models/model_25_percent_UNet11_Unet11_350epochs',
-    arg('--model-path', type=str, help='Model path')
+    arg('--model-path', type=str, default='./trained_models/model_25_percent_UNet11_Unet11_350epochs', help='Model path')
     arg('--dataset', type=str, default='burn', help='burn: burn segmentation')
 
     # image-related variables
     arg('--masks-dir', type=str, default='./data/dataset/fs7mtkg2wk-4/masks', help='numPy masks directory')
-    arg('--npy-dir', type=str, default='./data/dataset/fs7mtkg2wk-4/split_npy', help='numPy preprocessed patches directory')
+    arg('--images-dir', type=str, default='./data/dataset/fs7mtkg2wk-4/images', help='numPy preprocessed patches directory')
 
     args = parser.parse_args()
 
@@ -43,7 +44,7 @@ def test_all_images():
     time_str=now.strftime("%H:%M:%S")
 
     # Select sample pictures
-    images_filenames = np.array(sorted(glob.glob(args.npy_dir + "/*_mask.npy")))
+    images_filenames = np.array(sorted(glob.glob(args.images_dir + "/*.tif")))
 
     for filename in tqdm(images_filenames):
         
@@ -51,7 +52,7 @@ def test_all_images():
 
         fig = plt.figure(figsize=(10, 10))
 
-        image = pickle.load(open(filename, "rb"))
+        image = load_image(filename)
         image = preprocess_image(image)
 
         pred = run_model(image, model)

@@ -71,12 +71,12 @@ def splits_images(in_path,out_path,input_filename,output_filename,output_filenam
 
 def split_all():
     data_path = Path('imagenes')
-    out_path_images = '/home/crimson/fire_damage_detection_in_green_areas/data/crops/Cusco/'
+    out_path_images = '/home/crimson/fire_damage_detection_in_green_areas/data/crops/Puno/'
     start = timeit.default_timer()
-    input_filename0  = '/home/crimson/fire_damage_detection_in_green_areas/data/images/Cusco/S2A_MSIL1C_20201006T145731_N0209_R039_T18LZK_20201006T183129.SAFE/T18LZK_20201006T145731.tif'
-    output_filename0 = 'Cus-2020-10-06rgbnir0{}-{}.tif'
-    output_filename_npy0 = 'Cus-2020-10-06rgbnir0{}-{}.npy'
-    output_filename_npyblack0 = 'Cus-2020-10-06rgbnir0{}-{}_b.npy'
+    input_filename0  = '/home/crimson/fire_damage_detection_in_green_areas/data/images/Puno/S2B_MSIL2A_20220918T144729_N0400_R139_T19LCC_20220918T191044.SAFE/T19LCC_20220918T144729_B02.tif'
+    output_filename0 = 'Puno-2022-09-18rgbnir0{}-{}.tif'
+    output_filename_npy0 = 'Puno-2022-09-18rgbnir0{}-{}.npy'
+    output_filename_npyblack0 = 'Puno-2022-09-18rgbnir0{}-{}_b.npy'
     splits_images(data_path,out_path_images,input_filename0,output_filename0,output_filename_npy0,output_filename_npyblack0)
 
     end = timeit.default_timer()
