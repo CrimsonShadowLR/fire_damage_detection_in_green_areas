@@ -1,0 +1,4 @@
+Epoch 0/499
+----------
+LR1e-05
+dataloader:2

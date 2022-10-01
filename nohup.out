@@ -4039,3 +4039,58 @@ val: bce: 0.006183, loss: 0.298683, dice_loss: 0.352849, jaccard_loss: 0.477336/
 
 0m 21s
 Best val loss: 0.271614
+
+Bad key "lines.markerfacecolor" on line 11 in
+/usr/share/matplotlib/mpl-data/stylelib/classic.mplstyle.
+You probably need to get an updated matplotlibrc file from
+http://github.com/matplotlib/matplotlib/blob/master/matplotlibrc.template
+or from the matplotlib source distribution
+
+Bad key "lines.markeredgecolor" on line 12 in
+/usr/share/matplotlib/mpl-data/stylelib/classic.mplstyle.
+You probably need to get an updated matplotlibrc file from
+http://github.com/matplotlib/matplotlib/blob/master/matplotlibrc.template
+or from the matplotlib source distribution
+/usr/lib/python3/dist-packages/torch/optim/lr_scheduler.py:122: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+no display found. Using non-interactive Agg backend
+CUDA is available!  Training on GPU ...
+All: data_VHR 24 min  0 max  60000
+mean:[1.82661726e-01 1.60466433e-01 1.40496997e-01 1.21906524e-01
+ 2.93903932e-01 1.79227456e-01 1.00489334e-01 6.59587654e+02]
+std:[1.04191074e-01 1.10271594e-01 1.10455354e-01 1.18708709e-01
+ 1.45446489e-01 1.08413956e-01 8.13601856e-02 1.05334639e+03]
+Epoch 0/499
+----------
+LR 1e-05
+dataloader: 2
+Traceback (most recent call last):
+  File "train.py", line 151, in <module>
+    train()
+  File "train.py", line 127, in train
+    num_epochs=args.n_epochs)
+  File "/home/llazo/fire_damage_detection_in_green_areas/train_process.py", line 139, in train_model
+    outputs = model(inputs)
+  File "/usr/lib/python3/dist-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/usr/lib/python3/dist-packages/torch/nn/parallel/data_parallel.py", line 150, in forward
+    return self.module(*inputs[0], **kwargs[0])
+  File "/usr/lib/python3/dist-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/llazo/fire_damage_detection_in_green_areas/models/unet.py", line 111, in forward
+    dec2 = self.dec2(torch.cat([dec3, conv2], 1))
+  File "/usr/lib/python3/dist-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/llazo/fire_damage_detection_in_green_areas/models/unet.py", line 45, in forward
+    return self.block(x)
+  File "/usr/lib/python3/dist-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/usr/lib/python3/dist-packages/torch/nn/modules/container.py", line 100, in forward
+    input = module(input)
+  File "/usr/lib/python3/dist-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/usr/lib/python3/dist-packages/torch/nn/modules/upsampling.py", line 131, in forward
+    return F.interpolate(input, self.size, self.scale_factor, self.mode, self.align_corners)
+  File "/usr/lib/python3/dist-packages/torch/nn/functional.py", line 2512, in interpolate
+    return torch._C._nn.upsample_nearest2d(input, _output_size(2))
+RuntimeError: CUDA out of memory. Tried to allocate 2.44 GiB (GPU 0; 10.76 GiB total capacity; 8.26 GiB already allocated; 977.81 MiB free; 8.98 GiB reserved in total by PyTorch)
