@@ -33,8 +33,8 @@ def train():
     arg('--npy-dir', type=str, default='./data/dataset/fs7mtkg2wk-4/split_npy', help='numPy preprocessed patches directory')
 
     # preprocessing-related variables val, test and the rest is train
-    arg('--val-percent', type=float, default=0.15, help='Validation percent')
-    arg('--test-percent', type=float, default=0.10, help='Test percent')
+    arg('--val-percent', type=float, default=0.35, help='Validation percent')
+    arg('--test-percent', type=float, default=0.55, help='Test percent')
 
     # training-related variable
     arg('--batch-size', type=int, default=1, help='HR(High resolution):4,VHR(Very high resolution):8')
