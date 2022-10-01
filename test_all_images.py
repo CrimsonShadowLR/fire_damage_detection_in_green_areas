@@ -25,7 +25,7 @@ def test_all_images():
     arg = parser.add_argument
     
     # model-related variables model_path='./trained_models/model_25_percent_UNet11_Unet11_350epochs',
-    arg('--model-path', type=str, default='./trained_models/model_25_percent_UNet11_Unet11_350epochs', help='Model path')
+    arg('--model-path', type=str, default='./trained_models/model_15_percent_UNet11_Unet11_500epochs', help='Model path')
     arg('--dataset', type=str, default='burn', help='burn: burn segmentation')
 
     # image-related variables
