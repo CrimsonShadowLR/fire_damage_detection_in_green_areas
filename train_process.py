@@ -173,12 +173,12 @@ def train_model(name_file, model, dataset, optimizer, scheduler, dataloaders, na
     plot_loss(loss_history,
               loss_history_val,
               "Loss",
-              "history/history_model_data_aug{}_{}_{}epochs_loss_chart.png".format(name_file, name_model, num_epochs))
+              "history/history_model_data_aug{}_{}_{}epochs_loss_chart_sentinel.png".format(name_file, name_model, num_epochs))
 
     plot_loss(jaccard_loss_history,
               jaccard_loss_history_val,
               "Jaccard Loss",
-              "history/history_model_data_aug{}_{}_{}epochs_jaccard_loss_chart.png".format(name_file, name_model, num_epochs))
+              "history/history_model_data_aug{}_{}_{}epochs_jaccard_loss_chart_sentinel.png".format(name_file, name_model, num_epochs))
 
     model.load_state_dict(best_model_wts)
     return model
