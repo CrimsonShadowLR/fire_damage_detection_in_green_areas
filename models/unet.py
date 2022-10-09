@@ -46,7 +46,7 @@ class DecoderBlock(nn.Module):
 
 
 class UNet11(nn.Module):
-    def __init__(self, num_classes=1, num_filters=32, pretrained=False, input_channels=8, is_deconv=False):
+    def __init__(self, num_classes=1, num_filters=32, pretrained=False, input_channels=5, is_deconv=False):
         """
         :param num_classes:
         :param num_filters:

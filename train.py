@@ -28,18 +28,18 @@ def train():
     arg = parser.add_argument
 
     # image-related variables
-    arg('--dataset-dir', type=str, default='./data/dataset/fs7mtkg2wk-4/images', help='satellite image for LandSat8 directory')
-    arg('--masks-dir', type=str, default='./data/dataset/fs7mtkg2wk-4/masks', help='masks directory')
-    arg('--npy-dir', type=str, default='./data/dataset/fs7mtkg2wk-4/split_npy', help='numPy preprocessed patches directory')
+    arg('--dataset-dir', type=str, default='./data/dataset/peru/images', help='satellite image for LandSat8 directory')
+    arg('--masks-dir', type=str, default='./data/dataset/peru/masks', help='masks directory')
+    arg('--npy-dir', type=str, default='./data/dataset/peru/split_npy', help='numPy preprocessed patches directory')
 
     # preprocessing-related variables val, test and the rest is train
-    arg('--val-percent', type=float, default=0.35, help='Validation percent')
-    arg('--test-percent', type=float, default=0.55, help='Test percent')
+    arg('--val-percent', type=float, default=0.25, help='Validation percent')
+    arg('--test-percent', type=float, default=0.001, help='Test percent')
 
     # training-related variable
     arg('--batch-size', type=int, default=1, help='HR(High resolution):4,VHR(Very high resolution):8')
     arg('--limit', type=int, default=0, help='number of images in epoch')
-    arg('--n-epochs', type=int, default=5)
+    arg('--n-epochs', type=int, default=450)
     arg('--lr', type=float, default=1e-3)
     arg('--step', type=float, default=60)
     arg('--model', type=str, default='UNet11')
@@ -73,14 +73,14 @@ def train():
 
     images_np_filenames = dataset_utils.save_npy(images_filenames, args.npy_dir, args.model, args.masks_dir)
 
-    channel_num = 8
+    channel_num = 5
     _, mean_train, std_train = meanstd(np.array(images_np_filenames)[train_set_indices],
                                                      channel_num=channel_num)
 
     train_transform = DualCompose([
-        # HorizontalFlip(),
-        # VerticalFlip(),
-        # Rotate(),
+        HorizontalFlip(),
+        VerticalFlip(),
+        Rotate(),
         ImageOnly(Normalize(mean=mean_train, std=std_train))
     ])
 

@@ -8,11 +8,11 @@ import rasterio
 import timeit
 
 def return_nir_swir_band(img):
-    b_band = img.read(2).astype('f4')
-    g_band = img.read(3).astype('f4')
-    r_band = img.read(4).astype('f4')
-    nir_band = img.read(5).astype('f4')
-    swir_band = img.read(7).astype('f4')
+    b_band = img.read(1).astype('f4')
+    g_band = img.read(2).astype('f4')
+    r_band = img.read(3).astype('f4')
+    nir_band = img.read(4).astype('f4')
+    swir_band = img.read(5).astype('f4')
     return (r_band, b_band, g_band, nir_band, swir_band)
 
 def return_index_nbr(value):
@@ -113,7 +113,7 @@ def calculate_all():
         names=name.split('rgbnir0')
         output_file_name=data_path_out+'/'+names[0]+'colornbr0'+names[1]
         nbr_nbr_plus_calculation(file_name,output_file_name)
-        break
+        
 
     end = timeit.default_timer()
     print("elapsed time: {}".format(end-start))

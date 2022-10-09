@@ -22,6 +22,10 @@ dataset/
 .dataset/
 dataset_nbr/
 .dataset_nbr/
+dataset_nbr_pancromatic_mask/
+.dataset_nbr_pancromatic_mask/
+dataset_color_nbr/
+.dataset_color_nbr/
 lib/
 lib64/
 parts/

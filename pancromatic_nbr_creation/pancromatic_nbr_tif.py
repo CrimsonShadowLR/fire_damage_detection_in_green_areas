@@ -82,7 +82,7 @@ def pancromatic_nbr_calculation(path_img_source,path_img_out_tif):
 
 def calculate_all():
     data_path = './dataset'
-    data_path_out = './masks'
+    data_path_out = './dataset_nbr_pancromatic_mask'
     input_filename = np.array(sorted(glob.glob(data_path + "/*.tif")))
     print(len(input_filename))
     
@@ -92,7 +92,6 @@ def calculate_all():
         names=name.split('rgbnir0')
         output_file_name=data_path_out+'/'+names[0]+'mask_nbr0'+names[1]
         pancromatic_nbr_calculation(file_name,output_file_name)
-        break
 
     end = timeit.default_timer()
     print("elapsed time: {}".format(end-start))
