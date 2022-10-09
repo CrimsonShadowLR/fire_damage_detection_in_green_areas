@@ -20,10 +20,10 @@ def find_metrics(train_file_names, val_file_names, test_file_names, mask_dir, da
         os.mkdir("predictions/{}".format(out_file))
 
     f = open(
-        "predictions/{}/metric{}_{}_foldout{}_foldin{}_{}epochs.txt".format(out_file, name_file, name_model, fold_out,
+        "predictions/{}/metric{}_{}_foldout{}_foldin{}_{}epochs_sentinel.txt".format(out_file, name_file, name_model, fold_out,
                                                                             fold_in, epochs), "w+")
     f2 = open(
-        "predictions/{}/pred_loss_test{}_{}_foldout{}_foldin{}_{}epochs.txt".format(out_file, name_file, name_model,
+        "predictions/{}/pred_loss_test{}_{}_foldout{}_foldin{}_{}epochs_sentinel.txt".format(out_file, name_file, name_model,
                                                                                     fold_out, fold_in, epochs), "w+")
     f.write("Training mean_values:[{}], std_values:[{}] \n".format(mean_values, std_values))
 

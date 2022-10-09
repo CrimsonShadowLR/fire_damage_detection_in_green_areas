@@ -102,7 +102,7 @@ def train_model(name_file, model, dataset, optimizer, scheduler, dataloaders, na
     if not os.path.exists("history"):
         os.mkdir("history")
 
-    f = open("history/history_model_data_aug{}_{}_{}epochs.txt".format(name_file, name_model, num_epochs), "w+")
+    f = open("history/history_model_data_aug{}_{}_{}epochs_sentinel.txt".format(name_file, name_model, num_epochs), "w+")
 
     for epoch in range(num_epochs):
         print('Epoch {}/{}'.format(epoch, num_epochs - 1))
