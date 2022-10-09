@@ -59,8 +59,13 @@ def load_image(path):  # Input:CH,H,W  Output:H,W,CH
 def load_mask(path):  # Input:H,W  Output:H,W,CH
 
     x = path.split('.')
+    
 
-    mask = rasterio.open('.'+x[1]+"_mask."+x[2])
+    mask_name='.'+x[1]+"_mask."+x[2]
+    mask_name_parts=mask_name.split("rgbnir")
+    mask = rasterio.open(mask_name_parts[0]+'_'+mask_name_parts[1])
+
+    # mask = rasterio.open('.'+x[1]+"_mask."+x[2])
     mask = mask.read()
     mask = np.squeeze(mask, axis=(0,))
     mask = np.float32(mask)

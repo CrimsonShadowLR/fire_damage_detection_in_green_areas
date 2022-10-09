@@ -3,7 +3,7 @@ import torch
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
-def load_model(model_path, model_class, input_channels=8, num_classes=1):
+def load_model(model_path, model_class, input_channels=5, num_classes=1):
     """
     Loads a Pytorch model on GPU if possible.
 
