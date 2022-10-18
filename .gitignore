@@ -26,6 +26,10 @@ dataset_nbr_pancromatic_mask/
 .dataset_nbr_pancromatic_mask/
 dataset_color_nbr/
 .dataset_color_nbr/
+dataset_all_merge/
+.dataset_all_merge/
+dataset_color_mask_merge/
+.dataset_color_mask_merge/
 lib/
 lib64/
 parts/
