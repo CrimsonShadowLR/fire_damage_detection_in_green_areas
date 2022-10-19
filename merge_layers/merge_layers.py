@@ -29,13 +29,13 @@ def return_index_nbr(value):
         return 6116,0,6116
     # green dark, enhance regrowth, high
     elif (value >= -(500e-3)) and (value < -(251e-3)):
-        return 6116,0,6116
+        return 3500,799,25
     # green grass, enhance regrowth, low
     elif (value >= -(251e-3)) and (value < -(100e-3)):
-        return 1000,550,0
+        return 3500,799,25
     # green, unburned
     elif (value >= -(100e-3)) and (value < 99e-3):
-        return 1000,550,0
+        return 3500,799,25
     # yellow, low severity
     elif (value >= 99e-3) and (value < 269e-3):
         return 6116,1000,0
@@ -43,11 +43,12 @@ def return_index_nbr(value):
     elif (value >= 269e-3) and (value < 439e-3):
         return 6116,1000,0
     # dark orange, moderate-high severity
-    elif (value >= 439e-3) and (value < 659e-3):
+    elif (value >= 439e-3):
         return 0,6116,0
-    # magenta, high severity
     else:
-        return 0,6116,0
+        print(value)
+        return 6116,0,6116
+
 
 def nbr_nbr_plus_calculation(path_img_source, path_mask_source, path_img_all_out_tif,path_img_color_mask_out_tif):
 
