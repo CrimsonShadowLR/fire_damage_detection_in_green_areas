@@ -9,6 +9,7 @@ if os.environ.get('DISPLAY','') == '':
     print('no display found. Using non-interactive Agg backend')
     mpl.use('Agg')
 import matplotlib.pyplot as plt
+from datetime import date
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -102,7 +103,10 @@ def train_model(name_file, model, dataset, optimizer, scheduler, dataloaders, na
     if not os.path.exists("history"):
         os.mkdir("history")
 
-    f = open("history/history_model_data_aug{}_{}_{}epochs_sentinel.txt".format(name_file, name_model, num_epochs), "w+")
+    today = date.today()
+    today = today.strftime("%b-%d-%Y")
+
+    f = open("history/history_model_data_aug{}_{}_{}-{}epochs_landsat.txt".format(name_file, name_model, num_epochs,today), "w+")
 
     for epoch in range(num_epochs):
         print('Epoch {}/{}'.format(epoch, num_epochs - 1))
@@ -173,12 +177,12 @@ def train_model(name_file, model, dataset, optimizer, scheduler, dataloaders, na
     plot_loss(loss_history,
               loss_history_val,
               "Loss",
-              "history/history_model_data_aug{}_{}_{}epochs_loss_chart_sentinel.png".format(name_file, name_model, num_epochs))
+              "history/history_model_data_aug{}_{}_{}-{}epochs_loss_chart_landsat.png".format(name_file, name_model, num_epochs, today))
 
     plot_loss(jaccard_loss_history,
               jaccard_loss_history_val,
               "Jaccard Loss",
-              "history/history_model_data_aug{}_{}_{}epochs_jaccard_loss_chart_sentinel.png".format(name_file, name_model, num_epochs))
+              "history/history_model_data_aug{}_{}_{}-{}epochs_jaccard_loss_chart_landsat.png".format(name_file, name_model, num_epochs, today))
 
     model.load_state_dict(best_model_wts)
     return model

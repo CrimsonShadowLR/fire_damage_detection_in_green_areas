@@ -1,0 +1,4 @@
+Epoch 0/2
+----------
+LR0.001
+dataloader:27

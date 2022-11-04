@@ -22,6 +22,8 @@ dataset/
 .dataset/
 dataset_nbr/
 .dataset_nbr/
+LandSat-Puno/
+.LandSat-Puno/
 dataset_nbr_pancromatic_mask/
 .dataset_nbr_pancromatic_mask/
 dataset_color_nbr/

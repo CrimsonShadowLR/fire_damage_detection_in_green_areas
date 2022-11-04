@@ -69,19 +69,15 @@ def splits_images(in_path,out_path,input_filename,output_filename,output_filenam
                     writer = csv.writer(myFile)
                     writer.writerows(myData)  
 
-def split_all():
-    data_path = Path('imagenes')
-    out_path_images = '/home/crimson/fire_damage_detection_in_green_areas/data/crops/Puno/'
-    start = timeit.default_timer()
-    input_filename0  = '/home/crimson/fire_damage_detection_in_green_areas/data/images/Puno/S2A_MSIL2A_20221013T144731_N0400_R139_T19LDC_20221013T194155.SAFE/T19LDC_20221013T144731_B02.tif'
-    output_filename0 = 'Puno-2022-10-13rgbnir1{}-{}.tif'
-    output_filename_npy0 = 'Puno-2022-10-13rgbnir1{}-{}.npy'
-    output_filename_npyblack0 = 'Puno-2022-10-13rgbnir1{}-{}_b.npy'
-    splits_images(data_path,out_path_images,input_filename0,output_filename0,output_filename_npy0,output_filename_npyblack0)
 
-    end = timeit.default_timer()
-    print("elapsed time: {}".format(end-start))
+data_path = Path('imagenes')
+out_path_images = '/home/crimson/fire_damage_detection_in_green_areas/LandSat-Puno/crops/'
+start = timeit.default_timer()
+input_filename0  = '/home/crimson/fire_damage_detection_in_green_areas/LandSat-Puno/Puno1.tif'
+output_filename0 = 'Puno-2022-09-20rgbnir1{}-{}.tif'
+output_filename_npy0 = 'Puno-2022-09-20rgbnir1{}-{}.npy'
+output_filename_npyblack0 = 'Puno-2022-09-20rgbnir1{}-{}_b.npy'
+splits_images(data_path,out_path_images,input_filename0,output_filename0,output_filename_npy0,output_filename_npyblack0)
 
-
-if __name__ == "__main__":
-    split_all()
+end = timeit.default_timer()
+print("elapsed time: {}".format(end-start))

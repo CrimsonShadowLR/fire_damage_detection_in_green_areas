@@ -132,19 +132,19 @@ def train():
     torch.save(model.module.state_dict(),
                (str(args.out_path) + '/model{}_{}_{}epochs').format(name_file, "Unet11", args.n_epochs))
 
-    #find_metrics(train_file_names=np.array(images_np_filenames)[train_set_indices],
-#                 val_file_names=np.array(images_np_filenames)[val_set_indices],
- #                test_file_names=np.array(images_np_filenames)[test_set_indices],
-  #               mask_dir=args.masks_dir,
-   #              dataset=args.model,
-    #             mean_values=mean_train,
-#                 std_values=std_train,
- #                model=model,
-  #               name_model="Unet11",
-   #              epochs=args.n_epochs,
-    #             out_file=args.model,
-#                 dataset_file=args.model,
- #                name_file=name_file)
+    find_metrics(train_file_names=np.array(images_np_filenames)[train_set_indices],
+                val_file_names=np.array(images_np_filenames)[val_set_indices],
+                test_file_names=np.array(images_np_filenames)[test_set_indices],
+                mask_dir=args.masks_dir,
+                dataset=args.model,
+                mean_values=mean_train,
+                std_values=std_train,
+                model=model,
+                name_model="Unet11",
+                epochs=args.n_epochs,
+                out_file=args.model,
+                dataset_file=args.model,
+                name_file=name_file)
 
 
 if __name__ == "__main__":

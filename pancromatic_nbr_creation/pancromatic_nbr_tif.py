@@ -17,17 +17,17 @@ def return_nir_swir_band(img):
 
 def return_byte(value):
     if value < -(500e-3):
-        return 0
+        return 1
     elif (value >= -(500e-3)) and (value < -(251e-3)):
-        return 0
+        return 1
     elif (value >= -(100e-3)) and (value < 99e-3):
         return 0
     elif (value >= 99e-3) and (value < 269e-3):
         return 0
     elif (value >= 269e-3) and (value < 439e-3):
-        return 1
+        return 0
     elif (value >= 439e-3) and (value < 659e-3):
-        return 1
+        return 0
     else:
         return 1
 
@@ -48,7 +48,7 @@ def pancromatic_nbr_calculation(path_img_source,path_img_out_tif):
     meta['dtype'] = 'int8'
     meta['count'] = 1
 
-    print(meta)
+    print(path_img_source)
 
     file_name = glob.glob(path_img_out_tif)
     if len(file_name)>0:
