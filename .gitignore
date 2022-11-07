@@ -32,6 +32,12 @@ dataset_all_merge/
 .dataset_all_merge/
 dataset_color_mask_merge/
 .dataset_color_mask_merge/
+test-masks/
+.test-masks/
+test-dataset/
+.test-dataset/
+test-dataset-pancromatic-nbr/
+.test-dataset-pancromatic-nbr/
 lib/
 lib64/
 parts/
